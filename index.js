@@ -29,8 +29,8 @@ const bottomTabs = [
     {title: "Logout", icon: "logout_icon"},
 ];
 
-const topSidebar = document.querySelector("topsidebar");
-const bottomSidebar = document.querySelector("bottomsidebar");
+const topSidebar = document.querySelector(".topsidebar");
+const bottomSidebar = document.querySelector(".bottomsidebar");
 
 for (let a = 0; a < topTabs.length; a++){
     const div = document.createElement("div");
