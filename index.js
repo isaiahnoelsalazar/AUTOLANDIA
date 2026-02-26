@@ -26,7 +26,7 @@ const topTabs = [
 ];
 const bottomTabs = [
     {title: "Settings", icon: "settings_icon"},
-    {title: "Logout", icon: "logout_icon"},
+    {title: "Logout", icon: "logout_icon", click: showNote()},
 ];
 
 const topSidebar = document.querySelector(".topsidebar");
@@ -34,6 +34,9 @@ const bottomSidebar = document.querySelector(".bottomsidebar");
 
 for (let a = 0; a < topTabs.length; a++){
     const div = document.createElement("div");
+    if (topTabs[a].click){
+        div.addEventListener("click", topTabs[a].click);
+    }
     div.classList.add("ecbounceanimation-2", "alignItems-center", "gap-12px", "padding-[12px_16px]", "margin-[0_6px]", "backgroundColor-#eee", "hover:backgroundColor-#ddd", "eclisth");
     div.innerHTML = `
     <img src="${topTabs[a].icon}.png" alt="${topTabs[a].icon}" class="width-24px height-24px">
@@ -42,6 +45,9 @@ for (let a = 0; a < topTabs.length; a++){
 }
 for (let a = 0; a < bottomTabs.length; a++){
     const div = document.createElement("div");
+    if (bottomTabs[a].click){
+        div.addEventListener("click", bottomTabs[a].click);
+    }
     div.classList.add("ecbounceanimation-2", "alignItems-center", "gap-12px", "padding-[12px_16px]", "margin-[0_6px]", "backgroundColor-#eee", "hover:backgroundColor-#ddd", "eclisth");
     div.innerHTML = `
     <img src="${bottomTabs[a].icon}.png" alt="${bottomTabs[a].icon}" class="width-24px height-24px">
