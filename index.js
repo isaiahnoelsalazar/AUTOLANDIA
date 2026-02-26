@@ -34,6 +34,7 @@ const bottomSidebar = document.querySelector(".bottomsidebar");
 
 for (let a = 0; a < topTabs.length; a++){
     const div = document.createElement("div");
+    div.setAttribute("style", "user-select: none; -ms-user-select: none; -webkit-user-select: none;");
     if (topTabs[a].click){
         div.setAttribute("onclick", topTabs[a].click);
     }
@@ -45,6 +46,7 @@ for (let a = 0; a < topTabs.length; a++){
 }
 for (let a = 0; a < bottomTabs.length; a++){
     const div = document.createElement("div");
+    div.setAttribute("style", "user-select: none; -ms-user-select: none; -webkit-user-select: none;");
     if (bottomTabs[a].click){
         div.setAttribute("onclick", bottomTabs[a].click);
     }
