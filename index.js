@@ -17,15 +17,15 @@ function showNote(){
 
 const topTabs = [
     {title: "Dashboard", icon: "dashboard_icon", click: "dashboard()"},
-    {title: "People", icon: "people_icon"},
-    {title: "Services and Packages", icon: "package_icon"},
-    {title: "Transactions", icon: "transactions_icon"},
-    {title: "Billing", icon: "billing_icon"},
-    {title: "Reports", icon: "reports_icon"},
-    {title: "Activity Record", icon: "activity_record_icon"},
+    {title: "People", icon: "people_icon", click: "people()"},
+    {title: "Services and Packages", icon: "package_icon", click: "servicesandpackages()"},
+    {title: "Transactions", icon: "transactions_icon", click: "transactions()"},
+    {title: "Billing", icon: "billing_icon", click: "billing()"},
+    {title: "Reports", icon: "reports_icon", click: "reports()"},
+    {title: "Activity Record", icon: "activity_record_icon", click: "activityrecord()"},
 ];
 const bottomTabs = [
-    {title: "Settings", icon: "settings_icon"},
+    {title: "Settings", icon: "settings_icon", click: "settings()"},
     {title: "Logout", icon: "logout_icon", click: "showNote()"},
 ];
 const pages = [
@@ -72,4 +72,53 @@ function dashboard(){
         document.querySelector("." + pages[a]).classList.add("display-none");
     }
     document.querySelector(".dashboard").classList.remove("display-none");
+}
+
+function people(){
+    for (let a = 0; a < pages.length; a++){
+        document.querySelector("." + pages[a]).classList.add("display-none");
+    }
+    document.querySelector(".people").classList.remove("display-none");
+}
+
+function servicesandpackages(){
+    for (let a = 0; a < pages.length; a++){
+        document.querySelector("." + pages[a]).classList.add("display-none");
+    }
+    document.querySelector(".servicesandpackages").classList.remove("display-none");
+}
+
+function transactions(){
+    for (let a = 0; a < pages.length; a++){
+        document.querySelector("." + pages[a]).classList.add("display-none");
+    }
+    document.querySelector(".transactions").classList.remove("display-none");
+}
+
+function billing(){
+    for (let a = 0; a < pages.length; a++){
+        document.querySelector("." + pages[a]).classList.add("display-none");
+    }
+    document.querySelector(".billing").classList.remove("display-none");
+}
+
+function reports(){
+    for (let a = 0; a < pages.length; a++){
+        document.querySelector("." + pages[a]).classList.add("display-none");
+    }
+    document.querySelector(".reports").classList.remove("display-none");
+}
+
+function activityrecord(){
+    for (let a = 0; a < pages.length; a++){
+        document.querySelector("." + pages[a]).classList.add("display-none");
+    }
+    document.querySelector(".activityrecord").classList.remove("display-none");
+}
+
+function settings(){
+    for (let a = 0; a < pages.length; a++){
+        document.querySelector("." + pages[a]).classList.add("display-none");
+    }
+    document.querySelector(".settings").classList.remove("display-none");
 }
