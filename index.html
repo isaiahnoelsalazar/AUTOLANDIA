@@ -6,10 +6,38 @@
         <title>AUTOLANDIA</title>
         <script src="https://isaiahnoelsalazar.github.io/js/ECStyleSheet.js"></script>
         <script src="https://isaiahnoelsalazar.github.io/js/ECModal.js"></script>
+        <style>
+            .peopletab-active {
+                background-color: black;
+                color: white;
+            }
+            .peopletab-inactive {
+                background-color: #eee;
+            }
+            .peopletab-active:hover {
+                background-color: #444;
+            }
+            .peopletab-inactive:hover {
+                background-color: #ddd;
+            }
+            .servicesandpackagestab-active {
+                background-color: black;
+                color: white;
+            }
+            .servicesandpackagestab-inactive {
+                background-color: #eee;
+            }
+            .servicesandpackagestab-active:hover {
+                background-color: #444;
+            }
+            .servicesandpackagestab-inactive:hover {
+                background-color: #ddd;
+            }
+        </style>
     </head>
     <body class="eclisth height-100% margin-0 padding-0">
         <div class="width-300px height-100% eclistv">
-            <img src="autolandia_logo.jpg" alt="autolandia_logo" class="width-100% margin-0 padding-0 backgroundColor-green">
+            <img src="autolandia_logo.jpg" alt="autolandia_logo" class="width-100% margin-0 padding-0">
             <div class="eclistv height-100% alignItems-center justifyContent-[space-between] borderRight-[solid_#eee_1px]">
                 <div class="topsidebar width-100% eclistvf-6px gap-6px margin-[6px_0]">
                 </div>
@@ -18,28 +46,79 @@
             </div>
         </div>
         <div class="width-100%">
-            <div class="dashboard">
+            <div class="dashboard height-100%">
                 <h1>Dashboard</h1>
             </div>
-            <div class="people">
-                <h1>People</h1>
+            <div class="people height-100% eclistv">
+                <div class="eclisthf-6px gap-6px padding-6px borderBottom-[solid_#eee_1px]">
+                    <a onclick="switchPeopleTab(0)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer peopletab-active">Employees</a>
+                    <a onclick="switchPeopleTab(1)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer peopletab-inactive">Customers</a>
+                    <a onclick="switchPeopleTab(2)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer peopletab-inactive">Vehicles</a>
+                    <a onclick="switchPeopleTab(3)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer peopletab-inactive">User Accounts</a>
+                </div>
+                <div class="eclistv height-100%">
+                    <div class="peopletab-employees width-100% height-100%">
+                        <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                            <input type="text" id="employee_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                            <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Employee</a>
+                        </div>
+                    </div>
+                    <div class="peopletab-customers width-100% height-100% display-none">
+                        <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                            <input type="text" id="customer_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                            <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Customer</a>
+                        </div>
+                    </div>
+                    <div class="peopletab-vehicles width-100% height-100% display-none">
+                        <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                            <input type="text" id="vehicle_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                            <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Vehicle</a>
+                        </div>
+                    </div>
+                    <div class="peopletab-useraccounts width-100% height-100% display-none">
+                        <h1>User Accounts</h1>
+                    </div>
+                </div>
             </div>
-            <div class="servicesandpackages">
-                <h1>Services and Packages</h1>
+            <div class="servicesandpackages height-100%">
+                <div class="eclisthf-6px gap-6px padding-6px borderBottom-[solid_#eee_1px]">
+                    <a onclick="switchServicesAndPackagesTab(0)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer servicesandpackagestab-active">Services</a>
+                    <a onclick="switchServicesAndPackagesTab(1)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer servicesandpackagestab-inactive">Packages</a>
+                </div>
+                <div class="eclistv height-100%">
+                    <div class="servicesandpackagestab-services width-100% height-100%">
+                        <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                            <input type="text" id="service_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                            <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Service</a>
+                        </div>
+                    </div>
+                    <div class="servicesandpackagestab-packages width-100% height-100% display-none">
+                        <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                            <input type="text" id="package_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                            <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Package</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="transactions">
-                <h1>Transactions</h1>
+            <div class="transactions height-100%">
+                <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                    <input type="text" id="transactions_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                    <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Transaction</a>
+                </div>
             </div>
-            <div class="billing">
-                <h1>Billing</h1>
+            <div class="billing height-100%">
+                <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                    <input type="text" id="billing_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                    <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Billing</a>
+                </div>
             </div>
-            <div class="reports">
+            <div class="reports height-100%">
                 <h1>Reports</h1>
             </div>
-            <div class="activityrecord">
+            <div class="activityrecord height-100%">
                 <h1>Activity Record</h1>
             </div>
-            <div class="settings">
+            <div class="settings height-100%">
                 <h1>Settings</h1>
             </div>
         </div>
