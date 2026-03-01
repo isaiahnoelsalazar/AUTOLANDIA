@@ -46,8 +46,9 @@
             </div>
         </div>
         <div class="width-100%">
-            <div class="dashboard height-100%">
-                <h1>Dashboard</h1>
+            <div class="dashboard height-100% eclistv">
+                <h1>Good morning!</h1>
+                <canvas id="sales_chart" style="width: 300px; max-width: 300px; max-height: 300px;"></canvas>
             </div>
             <div class="people height-100% eclistv">
                 <div class="eclisthf-6px gap-6px padding-6px borderBottom-[solid_#eee_1px]">
@@ -116,12 +117,15 @@
                 <h1>Reports</h1>
             </div>
             <div class="activityrecord height-100%">
-                <h1>Activity Record</h1>
+                <div class="eclisthf-6px justifyContent-[space-between] padding-6px">
+                    <input type="text" id="activityrecord_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
+                    <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Activity Record</a>
+                </div>
             </div>
             <div class="settings height-100%">
-                <h1>Settings</h1>
             </div>
         </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
     <script src="index.js"></script>
 </html>

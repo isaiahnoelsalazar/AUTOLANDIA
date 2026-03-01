@@ -9,8 +9,17 @@ modal.setButtonAction(1, () => {
     }, 1000);
 });
 modal.setButtonAction(2, () => modal.hide());
+modal.show();
 
 function showNote(){
+    modal.setTitle("Note");
+    modal.setContent("This is an incomplete system. Any bugs encountered will be fixed in future updates.");
+    modal.show();
+}
+
+function showSettings(){
+    modal.setTitle("Settings");
+    modal.setContent("<h1>Settings</h1>");
     modal.show();
 }
 
@@ -24,7 +33,7 @@ const topTabs = [
     {title: "Activity Record", icon: "activity_record_icon", click: "activityrecord()"},
 ];
 const bottomTabs = [
-    {title: "Settings", icon: "settings_icon", click: "settings()"},
+    {title: "Settings", icon: "settings_icon", click: "showSettings()"},
     {title: "Logout", icon: "logout_icon", click: "showNote()"},
 ];
 const pages = [
@@ -176,13 +185,36 @@ const sample_employee_data = [
     "2<SEP>SYMBOLI RUDOLF<SEP>2026-02-28 11:00:00 AM<SEP>",
     "3<SEP>ASTON MACHAN<SEP><SEP>",
 ];
+
 const sample_customer_data = [
     "1<SEP>DAIWA SCARLET<SEP>",
     "2<SEP>VODKA<SEP>DAZ 6216",
 ];
+
 const sample_vehicle_data = [
     "1<SEP>MITSUBISHI<SEP>XPANDER<SEP>L<SEP>DAZ 6216<SEP>Vodka",
     "2<SEP>TOYOTA<SEP>ALPHARD<SEP>XL<SEP>DAZ 6217<SEP>",
+];
+
+const sample_services_data = [
+    "S_BWV<SEP>BODY WASH AND VACUUM<SEP>₱140.00<SEP>₱160.00<SEP>₱180.00<SEP>₱200.00<SEP>₱250.00<SEP>AVAILABLE",
+    "S_AA<SEP>ARMOR ALL<SEP>₱140.00<SEP>₱140.00<SEP>₱140.00<SEP>₱140.00<SEP>₱200.00<SEP>AVAILABLE",
+];
+
+const sample_packages_data = [
+    "P_B<SEP>BASIC<SEP>WASH, ARMOR ALL, HAND WAX, UNDER WASH<SEP>₱1000.00<SEP>₱1100.00<SEP>₱1200.00<SEP>₱1300.00<SEP>₱1600.00<SEP>AVAILABLE",
+];
+
+const sample_transactions_data = [
+    "1<SEP>SYMBOLI RUDOLF<SEP>[PACKAGE] - Superior, L<NL>[SERVICE] - S_SCCR, SCCI<SEP>DAZ 6216<SEP>1<SEP>2026-02-28 02:00:00 PM<SEP>2026-02-28 02:00:00 PM",
+];
+
+const sample_billing_data = [
+    "1<SEP>₱1000.00<SEP>₱0.00<SEP>2<SEP>2026-02-28 02:00:00 PM<SEP>2026-02-28 02:00:00 PM",
+];
+
+const sample_activityrecord_data = [
+    "2026-03-01 08:00:00 AM<SEP>Employee [TOKAI, TEIO] timed in.",
 ];
 
 function renderEmployeePage(){
@@ -265,14 +297,6 @@ function renderVehiclePage(){
     page.appendChild(table);
 }
 
-const sample_services_data = [
-    "S_BWV<SEP>BODY WASH AND VACUUM<SEP>₱140.00<SEP>₱160.00<SEP>₱180.00<SEP>₱200.00<SEP>₱250.00<SEP>AVAILABLE",
-    "S_AA<SEP>ARMOR ALL<SEP>₱140.00<SEP>₱140.00<SEP>₱140.00<SEP>₱140.00<SEP>₱200.00<SEP>AVAILABLE",
-];
-const sample_packages_data = [
-    "P_B<SEP>BASIC<SEP>WASH, ARMOR ALL, HAND WAX, UNDER WASH<SEP>₱1000.00<SEP>₱1100.00<SEP>₱1200.00<SEP>₱1300.00<SEP>₱1600.00<SEP>AVAILABLE",
-];
-
 function renderServicesPage(){
     const page = document.querySelector(".servicesandpackagestab-services");
     const table = document.createElement("table");
@@ -343,10 +367,6 @@ function renderPackagesPage(){
     page.appendChild(table);
 }
 
-const sample_transactions_data = [
-    "1<SEP>SYMBOLI RUDOLF<SEP>[PACKAGE] - Superior, L<NL>[SERVICE] - S_SCCR, SCCI<SEP>DAZ 6216<SEP>1<SEP>2026-02-28 02:00:00 PM<SEP>2026-02-28 02:00:00 PM",
-];
-
 function renderTransactionsPage(){
     const page = document.querySelector(".transactions");
     const table = document.createElement("table");
@@ -379,10 +399,6 @@ function renderTransactionsPage(){
     page.appendChild(table);
 }
 
-const sample_billing_data = [
-    "1<SEP>₱1000.00<SEP>₱0.00<SEP>2<SEP>2026-02-28 02:00:00 PM<SEP>2026-02-28 02:00:00 PM",
-];
-
 function renderBillingPage(){
     const page = document.querySelector(".billing");
     const table = document.createElement("table");
@@ -413,6 +429,30 @@ function renderBillingPage(){
     page.appendChild(table);
 }
 
+function renderActivityRecordPage(){
+    const page = document.querySelector(".activityrecord");
+    const table = document.createElement("table");
+    table.classList.add("ectable");
+    const thead = document.createElement("thead");
+    thead.innerHTML = `
+    <tr>
+        <th>Date Created</th>
+        <th>Activity Message</th>
+    </tr>`;
+    table.appendChild(thead);
+    const tbody = document.createElement("tbody");
+    for (let a = 0; a < sample_activityrecord_data.length; a++){
+        const data = sample_activityrecord_data[a].split("<SEP>");
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+        <td>${data[1]}</td>
+        <td>${data[2]}</td>`;
+        tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    page.appendChild(table);
+}
+
 people();
 renderEmployeePage();
 renderCustomerPage();
@@ -421,3 +461,25 @@ renderServicesPage();
 renderPackagesPage();
 renderTransactionsPage();
 renderBillingPage();
+renderActivityRecordPage();
+
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("sales_chart", {
+    type: "doughnut",
+    data: {
+        labels: xValues,
+        datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: "World Wide Wine Production"
+        }
+    }
+});
