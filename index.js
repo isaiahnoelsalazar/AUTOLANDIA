@@ -1,3 +1,5 @@
+let darkMode = false;
+
 const modal = new ECModal({title:"Note", content:"This is an incomplete system. Any bugs encountered will be fixed in future updates.", buttonAmount:2, buttonLabels:["OK", "Close"]});
 modal.setButtonAction(1, () => {
     modal.setContent("Thank you for your understanding!");
@@ -30,9 +32,21 @@ function showNote(){
     modal.show();
 }
 
+function toggleDarkMode(){
+    if (darkMode){
+        modal.disableDarkMode();
+        document.body.classList.remove("darkMode");
+        darkMode = false;
+    } else {
+        modal.enableDarkMode();
+        document.body.classList.add("darkMode");
+        darkMode = true;
+    }
+}
+
 function showSettings(){
     modal.setTitle("Settings");
-    modal.setContent(new ECToggle({content: "Enable dark mode"}).getToggleHTML());
+    modal.setContent(new ECToggle({content: "Enable dark mode", click: "toggleDarkMode()", initialState: darkMode}));
     modal.resetButtons({buttonAmount: 1, buttonLabels: ["Close"]});
     modal.setButtonAction(1, () => modal.hide());
     modal.show();
