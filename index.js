@@ -445,8 +445,8 @@ function renderActivityRecordPage(){
         const data = sample_activityrecord_data[a].split("<SEP>");
         const tr = document.createElement("tr");
         tr.innerHTML = `
-        <td>${data[1]}</td>
-        <td>${data[2]}</td>`;
+        <td>${data[0]}</td>
+        <td>${data[1]}</td>`;
         tbody.appendChild(tr);
     }
     table.appendChild(tbody);
