@@ -36,10 +36,26 @@ function toggleDarkMode(){
     if (darkMode){
         modal.disableDarkMode();
         document.body.classList.remove("darkMode");
+        const topsidebarImg = document.querySelectorAll(".topsidebar img");
+        topsidebarImg.forEach(img => {
+            img.src = img.src.replace("_dark", "");
+        });
+        const bottomsidebarImg = document.querySelectorAll(".bottomsidebar img");
+        bottomsidebarImg.forEach(img => {
+            img.src = img.src.replace("_dark", "");
+        });
         darkMode = false;
     } else {
         modal.enableDarkMode();
         document.body.classList.add("darkMode");
+        const topsidebarImg = document.querySelectorAll(".topsidebar img");
+        topsidebarImg.forEach(img => {
+            img.src = img.src.replace(".png", "_dark.png");
+        });
+        const bottomsidebarImg = document.querySelectorAll(".bottomsidebar img");
+        bottomsidebarImg.forEach(img => {
+            img.src = img.src.replace(".png", "_dark.png");
+        });
         darkMode = true;
     }
 }
@@ -73,7 +89,6 @@ const pages = [
     "billing",
     "reports",
     "activityrecord",
-    "settings"
 ];
 
 const topSidebar = document.querySelector(".topsidebar");
@@ -152,13 +167,6 @@ function activityrecord(){
         document.querySelector("." + pages[a]).classList.add("display-none");
     }
     document.querySelector(".activityrecord").classList.remove("display-none");
-}
-
-function settings(){
-    for (let a = 0; a < pages.length; a++){
-        document.querySelector("." + pages[a]).classList.add("display-none");
-    }
-    document.querySelector(".settings").classList.remove("display-none");
 }
 
 const peopleTabPages = [

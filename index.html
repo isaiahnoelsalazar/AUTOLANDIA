@@ -8,33 +8,52 @@
         <script src="https://isaiahnoelsalazar.github.io/js/ECElements.js"></script>
         <style>
             .peopletab-active {
-                background-color: black;
+                background-color: #1f1f1f;
                 color: white;
             }
             .peopletab-inactive {
                 background-color: #eee;
             }
             .peopletab-active:hover {
-                background-color: #444;
+                background-color: #3f3f3f;
             }
             .peopletab-inactive:hover {
                 background-color: #ddd;
             }
             .servicesandpackagestab-active {
-                background-color: black;
+                background-color: #1f1f1f;
                 color: white;
             }
             .servicesandpackagestab-inactive {
                 background-color: #eee;
             }
             .servicesandpackagestab-active:hover {
-                background-color: #444;
+                background-color: #3f3f3f;
             }
             .servicesandpackagestab-inactive:hover {
                 background-color: #ddd;
             }
             .darkMode {
-                background-color: #333;
+                background-color: #0f0f0f;
+                color: white;
+            }
+            .darkMode .ectable td, .darkMode .ectable th {
+                border: solid #1f1f1f 1px;
+            }
+            .darkMode .sidebarcontent {
+                border-right: solid #1f1f1f 1px;
+            }
+            .darkMode .people .peopleheader, .darkMode .servicesandpackages .servicesandpackagesheader {
+                border-bottom: solid #1f1f1f 1px;
+            }
+            .darkMode .peopletab-active, .darkMode .servicesandpackagestab-active {
+                background-color: #2f2f2f;
+            }
+            .darkMode .peopletab-inactive, .darkMode .servicesandpackagestab-inactive {
+                color: #0f0f0f;
+            }
+            .darkMode .topsidebar div, .darkMode .bottomsidebar div, .darkMode input, .darkMode .peopletab-employees a, .darkMode .peopletab-customers a, .darkMode .peopletab-vehicles a, .darkMode .peopletab-useraccounts a, .darkMode .servicesandpackagestab-services a, .darkMode .servicesandpackagestab-packages a, .darkMode .transactions a, .darkMode .billing a, .darkMode .activityrecord a {
+                background-color: #2f2f2f;
                 color: white;
             }
         </style>
@@ -42,7 +61,7 @@
     <body class="eclisth height-100% margin-0 padding-0">
         <div class="width-300px height-100% eclistv">
             <img src="autolandia_logo.jpg" alt="autolandia_logo" class="width-100% margin-0 padding-0">
-            <div class="eclistv height-100% alignItems-center justifyContent-[space-between] borderRight-[solid_#eee_1px]">
+            <div class="sidebarcontent eclistv height-100% alignItems-center justifyContent-[space-between] borderRight-[solid_#eee_1px]">
                 <div class="topsidebar width-100% eclistvf-6px gap-6px margin-[6px_0]">
                 </div>
                 <div class="bottomsidebar width-100% eclistvf-6px gap-6px margin-[6px_0]">
@@ -55,7 +74,7 @@
                 <canvas id="sales_chart" style="width: 300px; max-width: 300px; max-height: 300px;"></canvas>
             </div>
             <div class="people height-100% eclistv">
-                <div class="eclisthf-6px gap-6px padding-6px borderBottom-[solid_#eee_1px]">
+                <div class="peopleheader eclisthf-6px gap-6px padding-6px borderBottom-[solid_#eee_1px]">
                     <a onclick="switchPeopleTab(0)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer peopletab-active">Employees</a>
                     <a onclick="switchPeopleTab(1)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer peopletab-inactive">Customers</a>
                     <a onclick="switchPeopleTab(2)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer peopletab-inactive">Vehicles</a>
@@ -86,7 +105,7 @@
                 </div>
             </div>
             <div class="servicesandpackages height-100%">
-                <div class="eclisthf-6px gap-6px padding-6px borderBottom-[solid_#eee_1px]">
+                <div class="servicesandpackagesheader eclisthf-6px gap-6px padding-6px borderBottom-[solid_#eee_1px]">
                     <a onclick="switchServicesAndPackagesTab(0)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer servicesandpackagestab-active">Services</a>
                     <a onclick="switchServicesAndPackagesTab(1)" class="padding-[12px_16px] ecbounceanimation-2 cursor-pointer servicesandpackagestab-inactive">Packages</a>
                 </div>
@@ -117,7 +136,7 @@
                     <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Billing</a>
                 </div>
             </div>
-            <div class="reports height-100%">
+            <div class="reports height-100% overflowX-hidden">
                 <h1>Reports</h1>
             </div>
             <div class="activityrecord height-100%">
@@ -125,8 +144,6 @@
                     <input type="text" id="activityrecord_search" placeholder="Search" class="border-[solid_#eee_1px] padding-[8px_12px] width-100% maxWidth-720px">
                     <a class="backgroundColor-#eee hover:backgroundColor-#ddd padding-[12px_16px] ecbounceanimation-2 cursor-pointer">Add New Activity Record</a>
                 </div>
-            </div>
-            <div class="settings height-100%">
             </div>
         </div>
     </body>
