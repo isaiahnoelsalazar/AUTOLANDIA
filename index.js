@@ -9,17 +9,32 @@ modal.setButtonAction(1, () => {
     }, 1000);
 });
 modal.setButtonAction(2, () => modal.hide());
-modal.show();
+showNote();
 
 function showNote(){
     modal.setTitle("Note");
     modal.setContent("This is an incomplete system. Any bugs encountered will be fixed in future updates.");
+    modal.resetButtons({buttonAmount: 2, buttonLabels: ["OK", "Close"]});
+    modal.setButtonAction(1, () => {
+        modal.setContent("Thank you for your understanding!");
+        modal.resetButtons({buttonAmount: 1, buttonLabels: ["Close"]});
+        modal.setButtonAction(1, () => modal.hide());
+        setTimeout(() => {
+            modal.hide();
+            setTimeout(() => {
+                modal.setContent("This is an incomplete system. Any bugs encountered will be fixed in future updates.");
+            }, 200);
+        }, 1000);
+    });
+    modal.setButtonAction(2, () => modal.hide());
     modal.show();
 }
 
 function showSettings(){
     modal.setTitle("Settings");
-    modal.setContent("<h1>Settings</h1>");
+    modal.setContent(new ECToggle({content: "Enable dark mode"}).getToggleHTML());
+    modal.resetButtons({buttonAmount: 1, buttonLabels: ["Close"]});
+    modal.setButtonAction(1, () => modal.hide());
     modal.show();
 }
 
